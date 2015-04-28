@@ -1,0 +1,32 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.quoders.apps.android.src.com.quoders.apps.android.androidbootstrap.src.rest.RestExampleFragment">
+
+    <Button
+        android:id="@+id/buttonTestRetrofit"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_margin="5dp"
+        android:text="Test Retrofit" />
+
+    <Button
+        android:id="@+id/buttonTestVolley"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_margin="5dp"
+        android:text="Test Volley" />
+
+    <TextView
+        android:id="@+id/textViewRestResponse"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="15dp"
+        android:background="@android:color/black"
+        android:textColor="@android:color/holo_green_dark"
+        android:padding="5dp"
+        android:scrollbars="vertical"/>
+
+
+</LinearLayout>
