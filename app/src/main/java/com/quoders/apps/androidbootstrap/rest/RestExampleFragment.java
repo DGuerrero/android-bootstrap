@@ -46,14 +46,23 @@ public class RestExampleFragment extends Fragment  {
 
     @OnClick(R.id.buttonTestRetrofit)
     public void testRetrofit() {
-        testRetrofitGet();
+
+        //  Async GET example
+        testRetrofitGetAsync();
+
+        //  Sync GET example
+        testRetrofitGetSync();
+        
+        //  Sync POST example
+        testRetrofitPostAsync();
     }
 
 
     @OnClick(R.id.buttonTestVolley)
     public void testVolley() {
-
+        //  TODO
     }
+
 
     /**
      * Use this factory method to create a new instance of
@@ -118,19 +127,37 @@ public class RestExampleFragment extends Fragment  {
     }
 
 
-    private void testRetrofitGet() {
-        RestClient.getInstance().getComments("1", new Callback<List<CommentItem>>() {
+
+    private void testRetrofitGetAsync() {
+
+        RestClient.getInstance().getCommentsAsync("1", new Callback<List<CommentItem>>() {
+
             @Override
             public void success(List<CommentItem> commentItem, Response response) {
-                addLog("- retrofit response success - \n" + response.getStatus());
+                addLog("- retrofit async response success - " + response.getStatus());
             }
 
             @Override
             public void failure(RetrofitError error) {
-                addLog("- retrofit response error - \n" + error.getCause().getMessage());
+                addLog("- retrofit async response error - " + error.getCause().getMessage());
             }
         });
     }
+
+    private void testRetrofitGetSync() {
+
+        List<CommentItem> comments =  RestClient.getInstance().getCommentsSync("1");
+        if(comments != null && !comments.isEmpty()) {
+            addLog("- retrofit sync response success - ");
+        } else {
+            addLog("- retrofit sync response error - ");
+        }
+    }
+
+    private void testRetrofitPostAsync() {
+        //  TODO
+    }
+
 
 
     private void addLog(String s) {
