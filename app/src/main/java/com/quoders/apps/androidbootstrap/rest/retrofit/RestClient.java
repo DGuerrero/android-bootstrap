@@ -17,6 +17,7 @@ public class RestClient {
         if(mRestApi == null) {
 
             RestAdapter adapter = new RestAdapter.Builder()
+                    .setLogLevel(RestAdapter.LogLevel.FULL)
                     .setEndpoint(API_URL)
                     .build();
 
@@ -25,6 +26,4 @@ public class RestClient {
 
         return mRestApi;
     }
-
-
 }

@@ -2,6 +2,7 @@ package com.quoders.apps.androidbootstrap.rest;
 
 import android.app.Activity;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.method.ScrollingMovementMethod;
@@ -127,7 +128,9 @@ public class RestExampleFragment extends Fragment  {
     }
 
 
-
+    /***
+     *   Asynchronous Retrofit request
+     **/
     private void testRetrofitGetAsync() {
 
         RestClient.getInstance().getCommentsAsync("1", new Callback<List<CommentItem>>() {
@@ -144,15 +147,19 @@ public class RestExampleFragment extends Fragment  {
         });
     }
 
+    /***
+     *   Synchronous Retrofit request. In Android has to be done not in the UI thread
+     **/
     private void testRetrofitGetSync() {
 
-        List<CommentItem> comments =  RestClient.getInstance().getCommentsSync("1");
-        if(comments != null && !comments.isEmpty()) {
-            addLog("- retrofit sync response success - ");
-        } else {
-            addLog("- retrofit sync response error - ");
-        }
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                List<CommentItem> comments =  RestClient.getInstance().getCommentsSync("1");
+            }
+        });
     }
+
 
     private void testRetrofitPostAsync() {
         //  TODO
