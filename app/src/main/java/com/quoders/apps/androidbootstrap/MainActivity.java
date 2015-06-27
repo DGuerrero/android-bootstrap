@@ -1,28 +1,29 @@
 package com.quoders.apps.androidbootstrap;
 
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.quoders.apps.androidbootstrap.invites.InvitesFragment;
 import com.quoders.apps.androidbootstrap.rest.RestExampleFragment;
 
 
-public class MainActivity extends ActionBarActivity
+public class MainActivity extends AppCompatActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks,
                     RestExampleFragment.OnFragmentInteractionListener {
 
     private static final int FRAGMENT_REST_API_RETROFIT = 0x0000;
-    private static final int FRAGMENT_REST_API_VOLLEY = 0x0001;
+    private static final int FRAGMENT_API_INVITES = 0x0001;
 
 
     /**
@@ -51,11 +52,8 @@ public class MainActivity extends ActionBarActivity
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
-        FragmentManager fragmentManager = getSupportFragmentManager();
-
-        fragmentManager.beginTransaction()
-                .replace(R.id.container, getFragmentById(position) )
-                .commit();
+        FragmentManager fragmentManager = getFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.container, getFragmentById(position)).commit();
     }
 
     private Fragment getFragmentById(int position) {
@@ -63,7 +61,8 @@ public class MainActivity extends ActionBarActivity
         switch (position) {
             case FRAGMENT_REST_API_RETROFIT:
                 return RestExampleFragment.newInstance("");
-
+            case FRAGMENT_API_INVITES:
+                return InvitesFragment.newInstance("");
             default:
                 return PlaceholderFragment.newInstance(position + 1);
         }
@@ -75,10 +74,7 @@ public class MainActivity extends ActionBarActivity
                 mTitle = getString(R.string.title_section_rest);
                 break;
             case 2:
-                mTitle = getString(R.string.title_section2);
-                break;
-            case 3:
-                mTitle = getString(R.string.title_section3);
+                mTitle = getString(R.string.title_section_invites);
                 break;
         }
     }

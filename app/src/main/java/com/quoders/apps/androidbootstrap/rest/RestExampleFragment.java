@@ -1,10 +1,10 @@
 package com.quoders.apps.androidbootstrap.rest;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,7 +33,7 @@ import retrofit.client.Response;
  * Use the {@link RestExampleFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class RestExampleFragment extends Fragment  {
+public class RestExampleFragment extends Fragment {
 
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
