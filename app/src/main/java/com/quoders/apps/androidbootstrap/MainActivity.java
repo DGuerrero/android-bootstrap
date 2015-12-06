@@ -15,15 +15,19 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.quoders.apps.androidbootstrap.invites.InvitesFragment;
+import com.quoders.apps.androidbootstrap.mvvm.MvvmExampleFragment;
+import com.quoders.apps.androidbootstrap.mvvm.MvvmExampleFragment.OnFragmentInteractionListener;
 import com.quoders.apps.androidbootstrap.rest.RestExampleFragment;
 
 
 public class MainActivity extends AppCompatActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks,
-                    RestExampleFragment.OnFragmentInteractionListener {
+                    RestExampleFragment.OnFragmentInteractionListener,
+                    OnFragmentInteractionListener {
 
     private static final int FRAGMENT_REST_API_RETROFIT = 0x0000;
     private static final int FRAGMENT_API_INVITES = 0x0001;
+    private static final int FRAGMENT_MVVM = 0x0002;
 
 
     /**
@@ -63,6 +67,8 @@ public class MainActivity extends AppCompatActivity
                 return RestExampleFragment.newInstance("");
             case FRAGMENT_API_INVITES:
                 return InvitesFragment.newInstance("");
+            case FRAGMENT_MVVM:
+                return MvvmExampleFragment.newInstance("", "");
             default:
                 return PlaceholderFragment.newInstance(position + 1);
         }
@@ -75,6 +81,9 @@ public class MainActivity extends AppCompatActivity
                 break;
             case 2:
                 mTitle = getString(R.string.title_section_invites);
+                break;
+            case 3:
+                mTitle = getString(R.string.title_section_mvvm);
                 break;
         }
     }
