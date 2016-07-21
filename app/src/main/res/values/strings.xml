@@ -3,6 +3,7 @@
 
     <string name="title_section_rest">Rest</string>
     <string name="title_section_invites">Invites</string>
+    <string name="title_section_mvvm">Data Binding</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -11,8 +12,11 @@
 
     <string name="action_settings">Settings</string>
 
-<!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="invitation_title">Awesome app!</string>
     <string name="invitation_message">Take a look to this awesome app that I\'m using!</string>
+
+    <string name="binding_user_name">User Name:</string>
+    <string name="binding_email">Email:</string>
+    <string name="binding_fetch_data">Fetch Data</string>
+
 </resources>
