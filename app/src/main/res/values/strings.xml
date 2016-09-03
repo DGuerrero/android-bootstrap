@@ -19,4 +19,8 @@
     <string name="binding_email">Email:</string>
     <string name="binding_fetch_data">Fetch Data</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_section_rx">ReactiveX</string>
+
 </resources>

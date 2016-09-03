@@ -18,8 +18,6 @@ public class InvitesFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final int REQUEST_INVITE = 0x1001;
 
-    private String mParam1;
-
 
     public static InvitesFragment newInstance(String param1) {
         InvitesFragment fragment = new InvitesFragment();
@@ -36,9 +34,6 @@ public class InvitesFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-        }
     }
 
     @Override

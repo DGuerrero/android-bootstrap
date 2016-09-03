@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.quoders.apps.androidbootstrap.LogHelper;
 import com.quoders.apps.androidbootstrap.R;
 import com.quoders.apps.androidbootstrap.rest.model.CommentItem;
 import com.quoders.apps.androidbootstrap.rest.retrofit.RestClient;
@@ -97,15 +98,15 @@ public class RestExampleFragment extends Fragment {
 
             @Override
             public void success(List<CommentItem> commentItem, Response response) {
-                addLog("- retrofit async response success - " + response.getStatus());
+                LogHelper.addLog(mTextViewLogs, "- retrofit async response success - " + response.getStatus());
                 if(response.getStatus() == 200) {
-                    addLog(commentItem.get(0).getName() + "\n" + commentItem.get(0).getEmail());
+                    LogHelper.addLog(mTextViewLogs, commentItem.get(0).getName() + "\n" + commentItem.get(0).getEmail());
                 }
             }
 
             @Override
             public void failure(RetrofitError error) {
-                addLog("- retrofit async response error - " + error.getCause().getMessage());
+                LogHelper.addLog(mTextViewLogs, "- retrofit async response error - " + error.getCause().getMessage());
             }
         });
     }
@@ -127,11 +128,4 @@ public class RestExampleFragment extends Fragment {
     private void testRetrofitPostAsync() {
         //  TODO
     }
-
-
-
-    private void addLog(String s) {
-        mTextViewLogs.setText(mTextViewLogs.getText().toString() + "\n\n" + s);
-    }
-
 }
