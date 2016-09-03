@@ -20,8 +20,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import rx.Observable;
 import rx.Observer;
-import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
 import rx.schedulers.Schedulers;
 
 public class RxFragment extends Fragment {
@@ -33,6 +33,8 @@ public class RxFragment extends Fragment {
         Observer observer = getOddNumbersObserver();
         Observable<List<Integer>> observable = getOddNumbersObservable();
         observable.subscribe(observer);
+
+        observable.subscribe(getOddNumbersAction());
     }
 
     @OnClick(R.id.buttonExample2)
@@ -87,21 +89,30 @@ public class RxFragment extends Fragment {
         return numbers;
     }
 
+    private Action1<List<Integer>> getOddNumbersAction() {
+        return new Action1<List<Integer>>() {
+            @Override
+            public void call(List<Integer> integers) {
+                LogHelper.addLog(mTvLog, "getOddNumbersAction() -> call: " + integers);
+            }
+        };
+    }
+
     private Observer<List<Integer>> getOddNumbersObserver() {
         return new Observer<List<Integer>>() {
             @Override
             public void onCompleted() {
-                LogHelper.addLog(mTvLog, "getOddNumbers() -> onCompleted)");
+                LogHelper.addLog(mTvLog, "getOddNumbersObserver() -> onCompleted");
             }
 
             @Override
             public void onError(Throwable e) {
-                LogHelper.addLog(mTvLog, "getOddNumbers() -> onError)");
+                LogHelper.addLog(mTvLog, "getOddNumbersObserver() -> onError");
             }
 
             @Override
             public void onNext(List<Integer> integers) {
-                LogHelper.addLog(mTvLog, "getOddNumbers() -> onNext: )" + integers);
+                LogHelper.addLog(mTvLog, "getOddNumbersObserver() -> onNext: " + integers);
             }
        };
     }
