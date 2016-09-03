@@ -3,7 +3,6 @@ package com.quoders.apps.androidbootstrap;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -17,6 +16,7 @@ import android.view.ViewGroup;
 import com.quoders.apps.androidbootstrap.invites.InvitesFragment;
 import com.quoders.apps.androidbootstrap.mvvm.MvvmExampleFragment;
 import com.quoders.apps.androidbootstrap.rest.RestExampleFragment;
+import com.quoders.apps.androidbootstrap.rxjava.RxFragment;
 
 
 public class MainActivity extends AppCompatActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
     private static final int FRAGMENT_REST_API_RETROFIT = 0x0000;
     private static final int FRAGMENT_API_INVITES = 0x0001;
     private static final int FRAGMENT_MVVM = 0x0002;
+    private static final int FRAGMENT_RX = 0x0003;
 
 
     /**
@@ -65,6 +66,8 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
                 return InvitesFragment.newInstance("");
             case FRAGMENT_MVVM:
                 return MvvmExampleFragment.newInstance();
+            case FRAGMENT_RX:
+                return RxFragment.newInstance();
             default:
                 return PlaceholderFragment.newInstance(position + 1);
         }
@@ -80,6 +83,9 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
                 break;
             case 3:
                 mTitle = getString(R.string.title_section_mvvm);
+                break;
+            case 4:
+                mTitle = getString(R.string.title_section_rx);
                 break;
         }
     }

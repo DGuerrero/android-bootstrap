@@ -1,13 +1,39 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.quoders.apps.androidbootstrap.rxjava.RxFragment">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context="com.quoders.apps.androidbootstrap.rxjava.RxFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/buttonExample1"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="5dp"
+            android:text="Odd Numbers"/>
 
-</FrameLayout>
+        <Button
+            android:id="@+id/buttonExample2"
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Odd Numbers Background"/>
+        </LinearLayout>
+
+
+
+    <TextView
+        android:id="@+id/textViewRxLog"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="15dp"
+        android:background="@android:color/black"
+        android:textColor="@android:color/holo_green_dark"
+        android:padding="5dp"
+        android:scrollbars="vertical"/>
+
+</RelativeLayout>
