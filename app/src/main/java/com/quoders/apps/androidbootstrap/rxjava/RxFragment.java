@@ -14,6 +14,7 @@ import com.quoders.apps.androidbootstrap.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Callable;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -71,7 +72,12 @@ public class RxFragment extends Fragment {
     }
 
     private Observable<List<Integer>> getOddNumbersObservable() {
-        return Observable.just(getOddNumbers());
+        return Observable.fromCallable(new Callable<List<Integer>>() {
+            @Override
+            public List<Integer> call() throws Exception {
+                return getOddNumbers();
+            }
+        });
     }
 
     private List<Integer> getOddNumbers() {
